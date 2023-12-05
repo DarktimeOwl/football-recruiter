@@ -45,7 +45,7 @@
                         <configuration>
                             <archive>
                                 <manifest>
-                                    <mainClass>com.darktimeowl.football.recruiter.launch.fx.FootballRecruiterFXLauncher</mainClass>
+                                    <mainClass>com.darktimeowl.football_recruiter.launch.fx.FootballRecruiterFXLauncher</mainClass>
                                 </manifest>
                             </archive>
                         </configuration>

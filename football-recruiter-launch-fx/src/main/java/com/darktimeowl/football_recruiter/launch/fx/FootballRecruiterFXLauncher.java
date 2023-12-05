@@ -1,6 +1,6 @@
-package com.darktimeowl.football.recruiter.launch.fx;
+package com.darktimeowl.football_recruiter.launch.fx;
 
-import com.darktimeowl.football.recruiter.fx.FootballRecruiterFX;
+import com.darktimeowl.football_recruiter.fx.FootballRecruiterFX;
 
 public class FootballRecruiterFXLauncher {
     public static void main(String[] args) {

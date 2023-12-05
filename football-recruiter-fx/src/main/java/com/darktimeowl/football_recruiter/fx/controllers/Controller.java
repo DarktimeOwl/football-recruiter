@@ -1,4 +1,4 @@
-package com.darktimeowl.football.recruiter.fx.controllers;
+package com.darktimeowl.football_recruiter.fx.controllers;
 
 import javafx.scene.layout.Pane;
 

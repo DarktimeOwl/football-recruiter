@@ -1,7 +1,7 @@
-package com.darktimeowl.football.recruiter.fx.fxml;
+package com.darktimeowl.football_recruiter.fx.fxml;
 
-import com.darktimeowl.football.recruiter.fx.controllers.Controller;
-import com.darktimeowl.football.recruiter.fx.controllers.ControllerType;
+import com.darktimeowl.football_recruiter.fx.controllers.Controller;
+import com.darktimeowl.football_recruiter.fx.controllers.ControllerType;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
