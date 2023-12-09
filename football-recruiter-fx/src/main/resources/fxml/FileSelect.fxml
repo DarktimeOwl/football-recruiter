@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.darktimeowl.football_recruiter.fx.controllers.FileSelectController">
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.darktimeowl.football_recruiter.fx.controllers.FileSelectController">
+   <ListView fx:id="fileListView" layoutX="56.0" layoutY="24.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+   <ButtonBar layoutX="45.0" layoutY="346.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+      <buttons>
+         <Button defaultButton="true" mnemonicParsing="false" onAction="#clickOpen" text="Open" />
+         <Button cancelButton="true" mnemonicParsing="false" onAction="#clickCancel" text="Cancel" />
+         <Button mnemonicParsing="false" onAction="#clickDelete" style="-fx-background-color: red;" text="Delete" />
+      </buttons>
+   </ButtonBar>
 </AnchorPane>
