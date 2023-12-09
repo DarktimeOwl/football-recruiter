@@ -5,7 +5,7 @@ import javafx.util.Callback;
 import java.net.URL;
 
 public enum ControllerType {
-    START_VIEW("fxml/Start.fxml", param -> new StartController());
+    FILE_SELECT("fxml/FileSelect.fxml", param -> new FileSelectController());
 
     private final URL url;
     private final Callback<Class<?>, Object> controllerFactory;
