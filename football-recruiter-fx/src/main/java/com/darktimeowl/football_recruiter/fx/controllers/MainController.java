@@ -1,9 +1,16 @@
 package com.darktimeowl.football_recruiter.fx.controllers;
 
+import com.darktimeowl.football_recruiter.fx.commands.FXCommandFactory;
+import com.darktimeowl.football_recruiter.fx.commands.ViewFileSelectCommand;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 
 public class MainController extends Controller {
+    private final FXCommandFactory commandFactory;
+
+    public MainController(FXCommandFactory commandFactory) {
+        this.commandFactory = commandFactory;
+    }
 
     @FXML
     private void newFile() {
@@ -12,7 +19,8 @@ public class MainController extends Controller {
 
     @FXML
     private void open() {
-        System.out.println("Open!");
+        ViewFileSelectCommand command = commandFactory.makeViewFileSelectCommand();
+        command.execute();
     }
 
     @FXML

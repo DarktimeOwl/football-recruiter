@@ -1,7 +1,9 @@
 package com.darktimeowl.football_recruiter.fx.controllers;
 
+import com.darktimeowl.football_recruiter.fx.commands.FXCommandFactory;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -10,13 +12,23 @@ import static com.darktimeowl.football_recruiter.fx.controllers.ControllerType.F
 import static com.darktimeowl.football_recruiter.fx.controllers.ControllerType.MAIN;
 
 public class ControllerFactory {
+    private final Stage primaryStage;
 
-    public MainController makeMainController() {
-        return loadFXML(MAIN, param -> new MainController());
+    public ControllerFactory(Stage primaryStage) {
+        this.primaryStage = primaryStage;
     }
 
-    public FileSelectController makeFileSelectController() {
-        return loadFXML(FILE_SELECT, param -> new FileSelectController());
+    public StageController makeStageController() {
+        return new StageController(primaryStage, this);
+    }
+
+    public MainController makeMainController() {
+        FXCommandFactory fxCommandFactory = new FXCommandFactory(makeStageController());
+        return loadFXML(MAIN, param -> new MainController(fxCommandFactory));
+    }
+
+    public FileSelectController makeFileSelectController(Stage stage) {
+        return loadFXML(FILE_SELECT, param -> new FileSelectController(stage));
     }
 
     private <T extends Controller> T loadFXML(ControllerType type, Callback<Class<?>, Object> factory) {
