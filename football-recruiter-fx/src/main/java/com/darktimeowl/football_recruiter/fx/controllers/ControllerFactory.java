@@ -8,8 +8,7 @@ import javafx.util.Callback;
 
 import java.io.IOException;
 
-import static com.darktimeowl.football_recruiter.fx.controllers.ControllerType.FILE_SELECT;
-import static com.darktimeowl.football_recruiter.fx.controllers.ControllerType.MAIN;
+import static com.darktimeowl.football_recruiter.fx.controllers.ControllerType.*;
 
 public class ControllerFactory {
     private final Stage primaryStage;
@@ -29,6 +28,15 @@ public class ControllerFactory {
 
     public FileSelectController makeFileSelectController(Stage stage) {
         return loadFXML(FILE_SELECT, param -> new FileSelectController(stage));
+    }
+
+    public SeasonSetupController makeSeasonSetupController(Stage stage) {
+        ScheduleEntryController scheduleEntry = makeScheduleEntryController();
+        return loadFXML(SEASON_SETUP, param -> new SeasonSetupController(stage, scheduleEntry));
+    }
+
+    public ScheduleEntryController makeScheduleEntryController() {
+        return loadFXML(SCHEDULE_ENTRY, param -> new ScheduleEntryController());
     }
 
     private <T extends Controller> T loadFXML(ControllerType type, Callback<Class<?>, Object> factory) {

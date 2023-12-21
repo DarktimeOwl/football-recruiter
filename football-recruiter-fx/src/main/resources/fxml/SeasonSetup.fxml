@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.darktimeowl.football_recruiter.fx.controllers.SeasonSetupController">
+   <ComboBox fx:id="schoolComboBox" editable="true" onAction="#selectYourSchool" promptText="Your School" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" />
+   <ChoiceBox fx:id="weekChoiceBox" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
+    <TabPane minWidth="500.0" style="-fx-border-style: solid; -fx-border-radius: 3px;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="54.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="54.0">
+        <Tab closable="false" text="Conference">
+            <AnchorPane>
+                <ChoiceBox fx:id="conferenceChoiceBox" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" />
+                <ComboBox fx:id="nonConferenceSchoolComboBox" editable="true" promptText="School" AnchorPane.rightAnchor="205.0" AnchorPane.topAnchor="15.0" />
+                <ButtonBar AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                    <buttons>
+                        <Button fx:id="addConferenceSchoolButton" mnemonicParsing="false" onAction="#addConferenceSchool" style="-fx-background-color: lightgreen;" text="Add" />
+                        <Button fx:id="removeConferenceSchoolButton" mnemonicParsing="false" onAction="#removeConferenceSchool" style="-fx-background-color: red;" text="Remove" />
+                    </buttons>
+                </ButtonBar>
+                <ListView fx:id="conferenceSchoolsListView" maxHeight="300.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="50.0" />
+            </AnchorPane>
+        </Tab>
+        <Tab closable="false" text="Schedule">
+            <AnchorPane>
+                <AnchorPane fx:id="schedulePane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+            </AnchorPane>
+        </Tab>
+    </TabPane>
+   <ButtonBar layoutX="461.0" layoutY="396.0" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
+     <buttons>
+         <Button cancelButton="true" mnemonicParsing="false" onAction="#clickCancel" text="Cancel" />
+       <Button defaultButton="true" mnemonicParsing="false" onAction="#clickStart" text="Start" />
+     </buttons>
+   </ButtonBar>
+</AnchorPane>

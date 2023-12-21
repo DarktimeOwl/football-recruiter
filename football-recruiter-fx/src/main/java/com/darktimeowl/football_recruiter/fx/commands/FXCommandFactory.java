@@ -12,4 +12,8 @@ public class FXCommandFactory {
     public ViewFileSelectCommand makeViewFileSelectCommand() {
         return new ViewFileSelectCommand(stageController);
     }
+
+    public ViewSeasonSetupCommand makeViewSeasonSetupCommand() {
+        return new ViewSeasonSetupCommand(stageController);
+    }
 }

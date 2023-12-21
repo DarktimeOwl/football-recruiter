@@ -4,7 +4,9 @@ import java.net.URL;
 
 public enum ControllerType {
     MAIN("fxml/Main.fxml"),
-    FILE_SELECT("fxml/FileSelect.fxml");
+    FILE_SELECT("fxml/FileSelect.fxml"),
+    SEASON_SETUP("fxml/SeasonSetup.fxml"),
+    SCHEDULE_ENTRY("fxml/ScheduleEntry.fxml");
 
     private final URL url;
 

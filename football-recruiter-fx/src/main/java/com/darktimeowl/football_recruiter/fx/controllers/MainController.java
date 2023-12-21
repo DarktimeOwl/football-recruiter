@@ -2,6 +2,7 @@ package com.darktimeowl.football_recruiter.fx.controllers;
 
 import com.darktimeowl.football_recruiter.fx.commands.FXCommandFactory;
 import com.darktimeowl.football_recruiter.fx.commands.ViewFileSelectCommand;
+import com.darktimeowl.football_recruiter.fx.commands.ViewSeasonSetupCommand;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 
@@ -14,7 +15,8 @@ public class MainController extends Controller {
 
     @FXML
     private void newFile() {
-        System.out.println("New!");
+        ViewSeasonSetupCommand command = commandFactory.makeViewSeasonSetupCommand();
+        command.execute();
     }
 
     @FXML
