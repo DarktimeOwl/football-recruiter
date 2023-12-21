@@ -52,7 +52,7 @@ public enum School implements Opponent {
     KANSAS_STATE("Kansas State", "Wildcats"),
     KENT_STATE("Kent State", "Golden Flashes"),
     KENTUCKY("Kentucky", "Wildcats"),
-    LA_TECH("La Tech", "Bulldogs"),
+    LA_TECH("Louisiana Tech", "Bulldogs"),
     LOUISVILLE("Louisville", "Cardinals"),
     LSU("LSU", "Tigers"),
     MARSHALL("Marshall", "Thundering Herd"),
