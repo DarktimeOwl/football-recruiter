@@ -5,7 +5,7 @@ import com.darktimeowl.football_recruiter.app.enums.School;
 import com.darktimeowl.football_recruiter.fx.model.SearchableComboBox;
 import com.darktimeowl.football_recruiter.fx.model.StringConverterCellFactory;
 import com.darktimeowl.football_recruiter.fx.model.StringConverters;
-import javafx.beans.binding.Bindings;
+import javafx.beans.binding.ObjectBinding;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -22,6 +22,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import static com.darktimeowl.football_recruiter.app.enums.Conference.INDEPENDENT;
+import static javafx.beans.binding.Bindings.createObjectBinding;
 
 public class SeasonSetupController extends Controller {
     private static final int MAXIMUM_CONFERENCE_SIZE = 16;
@@ -161,12 +162,13 @@ public class SeasonSetupController extends Controller {
         initializeConferenceSchoolComboBox();
         initializeConferenceSchoolsListView();
         schedulePane.getChildren().addAll(scheduleEntryController.getChildren());
-        scheduleEntryController.setSchoolBinding(Bindings.createObjectBinding(schoolComboBox::getValue));
     }
 
     private void initializeSchoolComboBox() {
         schoolComboBox.setConverter(StringConverters.schoolFullName());
         SearchableComboBox.builder(schoolComboBox, School::streamAll).build();
+        ObjectBinding<School> schoolBinding = createObjectBinding(schoolComboBox::getValue, schoolComboBox.valueProperty());
+        scheduleEntryController.setSchoolBinding(schoolBinding);
     }
 
     private void initializeWeekChoiceBox() {
