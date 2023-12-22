@@ -18,9 +18,11 @@ public class StringConverterCellFactory<T> implements Callback<ListView<T>, List
             @Override
             public void updateItem(T item, boolean empty) {
                 super.updateItem(item, empty);
-                if (!empty) {
-                    setText(converter.toString(item));
+                if (empty) {
+                    setText(null);
+                    return;
                 }
+                setText(converter.toString(item));
             }
         };
     }
