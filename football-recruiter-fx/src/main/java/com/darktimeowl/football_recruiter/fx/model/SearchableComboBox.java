@@ -1,30 +1,28 @@
 package com.darktimeowl.football_recruiter.fx.model;
 
 import javafx.application.Platform;
-import javafx.beans.Observable;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
 import javafx.util.StringConverter;
 
 import java.util.List;
-import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 public class SearchableComboBox<T> {
     private static final int DEFAULT_VISIBLE_ROW_COUNT = 10;
     private final ComboBox<T> comboBox;
-    private final FilteredListBinding<T> sourceListBinding;
+    private final Supplier<Stream<T>> sourceSupplier;
     private final ObservableList<T> filteredList;
 
-    public static <T> Builder<T> builder(ComboBox<T> comboBox, Supplier<Stream<T>> sourceSupplier) {
-        return new Builder<>(comboBox, sourceSupplier);
+    public static <T> void create(ComboBox<T> comboBox, Supplier<Stream<T>> sourceSupplier) {
+        new SearchableComboBox<>(comboBox, sourceSupplier);
     }
 
-    private SearchableComboBox(ComboBox<T> comboBox, FilteredListBinding<T> sourceListBinding) {
+    private SearchableComboBox(ComboBox<T> comboBox, Supplier<Stream<T>> sourceSupplier) {
         this.comboBox = comboBox;
-        this.sourceListBinding = sourceListBinding;
+        this.sourceSupplier = sourceSupplier;
         this.filteredList = comboBox.getItems();
         resetList();
         comboBox.getEditor().textProperty().addListener(this::changed);
@@ -56,7 +54,7 @@ public class SearchableComboBox<T> {
     }
 
     private List<T> refreshList(String searchText) {
-        List<T> searchResults = sourceListBinding.get().stream()
+        List<T> searchResults = sourceSupplier.get()
                 .filter(t -> startsWith(t, searchText))
                 .toList();
         if (searchResults.isEmpty()) {
@@ -85,7 +83,7 @@ public class SearchableComboBox<T> {
     private void resetList() {
         comboBox.hide();
         filteredList.clear();
-        filteredList.addAll(sourceListBinding.get());
+        sourceSupplier.get().forEach(filteredList::add);
         comboBox.setVisibleRowCount(DEFAULT_VISIBLE_ROW_COUNT);
     }
 
@@ -96,30 +94,6 @@ public class SearchableComboBox<T> {
             if (!filteredItem.equals(searchResult)) {
                 filteredList.add(i, searchResult);
             }
-        }
-    }
-
-    public static class Builder<T> {
-        private final ComboBox<T> comboBox;
-        private final FilteredListBinding.Builder<T> sourceListBuilder;
-
-        private Builder(ComboBox<T> comboBox, Supplier<Stream<T>> sourceSupplier) {
-            this.comboBox = comboBox;
-            this.sourceListBuilder = FilteredListBinding.builder(sourceSupplier);
-        }
-
-        public void build() {
-            new SearchableComboBox<>(comboBox, sourceListBuilder.build());
-        }
-
-        public Builder<T> addDependency(Observable dependency) {
-            sourceListBuilder.addDependency(dependency);
-            return this;
-        }
-
-        public Builder<T> addFilter(Predicate<T> filter) {
-            sourceListBuilder.addFilter(filter);
-            return this;
         }
     }
 }

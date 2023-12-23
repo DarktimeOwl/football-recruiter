@@ -172,7 +172,7 @@ public class ScheduleEntryController extends Controller {
 
         private void initializeOpponentComboBox() {
             opponentComboBox.setConverter(StringConverters.opponentFullName());
-            SearchableComboBox.builder(opponentComboBox, this::validOpponents).build();
+            SearchableComboBox.create(opponentComboBox, this::validOpponents);
         }
 
         private void initializeWeekTypeToggleGroup() {

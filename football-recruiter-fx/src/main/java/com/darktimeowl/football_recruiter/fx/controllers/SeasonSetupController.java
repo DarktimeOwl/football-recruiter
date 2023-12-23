@@ -20,6 +20,7 @@ import javafx.util.StringConverter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static com.darktimeowl.football_recruiter.app.enums.Conference.INDEPENDENT;
 import static javafx.beans.binding.Bindings.createObjectBinding;
@@ -159,14 +160,14 @@ public class SeasonSetupController extends Controller {
         initializeSchoolComboBox();
         initializeWeekChoiceBox();
         initializeConferenceChoiceBox();
-        initializeConferenceSchoolComboBox();
+        initializeNonConferenceSchoolComboBox();
         initializeConferenceSchoolsListView();
         schedulePane.getChildren().addAll(scheduleEntryController.getChildren());
     }
 
     private void initializeSchoolComboBox() {
         schoolComboBox.setConverter(StringConverters.schoolFullName());
-        SearchableComboBox.builder(schoolComboBox, School::streamAll).build();
+        SearchableComboBox.create(schoolComboBox, School::streamAll);
         ObjectBinding<School> schoolBinding = createObjectBinding(schoolComboBox::getValue, schoolComboBox.valueProperty());
         scheduleEntryController.setSchoolBinding(schoolBinding);
     }
@@ -186,14 +187,15 @@ public class SeasonSetupController extends Controller {
         conferenceChoiceBox.valueProperty().addListener(this::changeConferenceSelection);
     }
 
-    private void initializeConferenceSchoolComboBox() {
+    private void initializeNonConferenceSchoolComboBox() {
         nonConferenceSchoolComboBox.setConverter(StringConverters.schoolFullName());
-        SearchableComboBox.builder(nonConferenceSchoolComboBox, School::streamAll)
-                .addDependency(schoolComboBox.valueProperty())
-                .addDependency(conferenceSchoolsListView.getItems())
-                .addFilter(school -> school != schoolComboBox.getValue())
-                .addFilter(school -> !conferenceSchoolsListView.getItems().contains(school))
-                .build();
+        SearchableComboBox.create(nonConferenceSchoolComboBox, this::nonConferenceSchools);
+    }
+
+    private Stream<School> nonConferenceSchools() {
+        return School.streamAll()
+                .filter(school -> school != schoolComboBox.getValue())
+                .filter(school -> !conferenceSchoolsListView.getItems().contains(school));
     }
 
     private void initializeConferenceSchoolsListView() {
