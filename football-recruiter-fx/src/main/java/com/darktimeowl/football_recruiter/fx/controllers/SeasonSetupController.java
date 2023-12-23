@@ -13,7 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
@@ -40,7 +40,7 @@ public class SeasonSetupController extends Controller {
     @FXML private Button removeConferenceSchoolButton;
     @FXML private ListView<School> conferenceSchoolsListView;
 
-    @FXML private AnchorPane schedulePane;
+    @FXML private VBox schedulePane;
 
     public SeasonSetupController(Stage stage, ScheduleEntryController scheduleEntryController) {
         this.stage = stage;

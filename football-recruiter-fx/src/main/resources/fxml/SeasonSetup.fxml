@@ -16,13 +16,12 @@
                         <Button fx:id="removeConferenceSchoolButton" mnemonicParsing="false" onAction="#removeConferenceSchool" style="-fx-background-color: red;" text="Remove" />
                     </buttons>
                 </ButtonBar>
-                <ListView fx:id="conferenceSchoolsListView" maxHeight="300.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="50.0" />
+                <ListView fx:id="conferenceSchoolsListView" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="50.0" />
             </AnchorPane>
         </Tab>
         <Tab closable="false" text="Schedule">
             <AnchorPane>
-                <AnchorPane fx:id="schedulePane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+            <VBox fx:id="schedulePane" alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
             </AnchorPane>
         </Tab>
     </TabPane>
