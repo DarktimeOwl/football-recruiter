@@ -7,32 +7,38 @@ import com.darktimeowl.football_recruiter.fx.model.SearchableComboBox;
 import com.darktimeowl.football_recruiter.fx.model.StringConverters;
 import javafx.beans.binding.ObjectBinding;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
+import javafx.util.StringConverter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
-import static com.darktimeowl.football_recruiter.app.enums.WeekType.BYE;
+import static com.darktimeowl.football_recruiter.app.enums.WeekType.*;
+import static javafx.beans.binding.Bindings.createObjectBinding;
 
 public class ScheduleEntryController extends Controller {
-    @FXML private ChoiceBox<WeekType> weekTypeChoiceBox1;
-    @FXML private ChoiceBox<WeekType> weekTypeChoiceBox2;
-    @FXML private ChoiceBox<WeekType> weekTypeChoiceBox3;
-    @FXML private ChoiceBox<WeekType> weekTypeChoiceBox4;
-    @FXML private ChoiceBox<WeekType> weekTypeChoiceBox5;
-    @FXML private ChoiceBox<WeekType> weekTypeChoiceBox6;
-    @FXML private ChoiceBox<WeekType> weekTypeChoiceBox7;
-    @FXML private ChoiceBox<WeekType> weekTypeChoiceBox8;
-    @FXML private ChoiceBox<WeekType> weekTypeChoiceBox9;
-    @FXML private ChoiceBox<WeekType> weekTypeChoiceBox10;
-    @FXML private ChoiceBox<WeekType> weekTypeChoiceBox11;
-    @FXML private ChoiceBox<WeekType> weekTypeChoiceBox12;
-    @FXML private ChoiceBox<WeekType> weekTypeChoiceBox13;
-    @FXML private ChoiceBox<WeekType> weekTypeChoiceBox14;
-    @FXML private ChoiceBox<WeekType> weekTypeChoiceBox15;
-    
+    @FXML private ToggleGroup weekTypeToggleGroup1;
+    @FXML private ToggleGroup weekTypeToggleGroup2;
+    @FXML private ToggleGroup weekTypeToggleGroup3;
+    @FXML private ToggleGroup weekTypeToggleGroup4;
+    @FXML private ToggleGroup weekTypeToggleGroup5;
+    @FXML private ToggleGroup weekTypeToggleGroup6;
+    @FXML private ToggleGroup weekTypeToggleGroup7;
+    @FXML private ToggleGroup weekTypeToggleGroup8;
+    @FXML private ToggleGroup weekTypeToggleGroup9;
+    @FXML private ToggleGroup weekTypeToggleGroup10;
+    @FXML private ToggleGroup weekTypeToggleGroup11;
+    @FXML private ToggleGroup weekTypeToggleGroup12;
+    @FXML private ToggleGroup weekTypeToggleGroup13;
+    @FXML private ToggleGroup weekTypeToggleGroup14;
+    @FXML private ToggleGroup weekTypeToggleGroup15;
+
     @FXML private ComboBox<Opponent> opponentComboBox1;
     @FXML private ComboBox<Opponent> opponentComboBox2;
     @FXML private ComboBox<Opponent> opponentComboBox3;
@@ -50,7 +56,7 @@ public class ScheduleEntryController extends Controller {
     @FXML private ComboBox<Opponent> opponentComboBox15;
     
     private final List<WeekEntry> weekEntries = new ArrayList<>();
-    private ObjectBinding<School> schoolBinding;
+    private ObjectBinding<School> schoolBinding = createObjectBinding(() -> null);
 
     /**
      * Each validation error found will be added to the returned {@code List<String>}.
@@ -91,32 +97,36 @@ public class ScheduleEntryController extends Controller {
     public void setSchoolBinding(ObjectBinding<School> schoolBinding) {
         this.schoolBinding = schoolBinding;
     }
-    
+
     @FXML
     private void initialize() {
-        weekEntries.add(new WeekEntry(weekTypeChoiceBox1, opponentComboBox1));
-        weekEntries.add(new WeekEntry(weekTypeChoiceBox2, opponentComboBox2));
-        weekEntries.add(new WeekEntry(weekTypeChoiceBox3, opponentComboBox3));
-        weekEntries.add(new WeekEntry(weekTypeChoiceBox4, opponentComboBox4));
-        weekEntries.add(new WeekEntry(weekTypeChoiceBox5, opponentComboBox5));
-        weekEntries.add(new WeekEntry(weekTypeChoiceBox6, opponentComboBox6));
-        weekEntries.add(new WeekEntry(weekTypeChoiceBox7, opponentComboBox7));
-        weekEntries.add(new WeekEntry(weekTypeChoiceBox8, opponentComboBox8));
-        weekEntries.add(new WeekEntry(weekTypeChoiceBox9, opponentComboBox9));
-        weekEntries.add(new WeekEntry(weekTypeChoiceBox10, opponentComboBox10));
-        weekEntries.add(new WeekEntry(weekTypeChoiceBox11, opponentComboBox11));
-        weekEntries.add(new WeekEntry(weekTypeChoiceBox12, opponentComboBox12));
-        weekEntries.add(new WeekEntry(weekTypeChoiceBox13, opponentComboBox13));
-        weekEntries.add(new WeekEntry(weekTypeChoiceBox14, opponentComboBox14));
-        weekEntries.add(new WeekEntry(weekTypeChoiceBox15, opponentComboBox15));
+        weekEntries.add(new WeekEntry(weekTypeToggleGroup1, opponentComboBox1));
+        weekEntries.add(new WeekEntry(weekTypeToggleGroup2, opponentComboBox2));
+        weekEntries.add(new WeekEntry(weekTypeToggleGroup3, opponentComboBox3));
+        weekEntries.add(new WeekEntry(weekTypeToggleGroup4, opponentComboBox4));
+        weekEntries.add(new WeekEntry(weekTypeToggleGroup5, opponentComboBox5));
+        weekEntries.add(new WeekEntry(weekTypeToggleGroup6, opponentComboBox6));
+        weekEntries.add(new WeekEntry(weekTypeToggleGroup7, opponentComboBox7));
+        weekEntries.add(new WeekEntry(weekTypeToggleGroup8, opponentComboBox8));
+        weekEntries.add(new WeekEntry(weekTypeToggleGroup9, opponentComboBox9));
+        weekEntries.add(new WeekEntry(weekTypeToggleGroup10, opponentComboBox10));
+        weekEntries.add(new WeekEntry(weekTypeToggleGroup11, opponentComboBox11));
+        weekEntries.add(new WeekEntry(weekTypeToggleGroup12, opponentComboBox12));
+        weekEntries.add(new WeekEntry(weekTypeToggleGroup13, opponentComboBox13));
+        weekEntries.add(new WeekEntry(weekTypeToggleGroup14, opponentComboBox14));
+        weekEntries.add(new WeekEntry(weekTypeToggleGroup15, opponentComboBox15));
     }
 
-    private record WeekEntry(ChoiceBox<WeekType> weekTypeChoiceBox, ComboBox<Opponent> opponentComboBox) {
-        private WeekEntry(ChoiceBox<WeekType> weekTypeChoiceBox, ComboBox<Opponent> opponentComboBox) {
-            this.weekTypeChoiceBox = weekTypeChoiceBox;
+    private class WeekEntry {
+        private final ToggleGroup weekTypeToggleGroup;
+        private final ComboBox<Opponent> opponentComboBox;
+        private WeekType weekType = BYE;
+
+        private WeekEntry(ToggleGroup weekTypeToggleGroup, ComboBox<Opponent> opponentComboBox) {
+            this.weekTypeToggleGroup = weekTypeToggleGroup;
             this.opponentComboBox = opponentComboBox;
             initializeOpponentComboBox();
-            initializeWeekTypeChoiceBox();
+            initializeWeekTypeToggleGroup();
         }
 
         public Opponent opponent() {
@@ -124,7 +134,7 @@ public class ScheduleEntryController extends Controller {
         }
 
         public WeekType weekType() {
-            return weekTypeChoiceBox.getValue();
+            return weekType;
         }
 
         public boolean isByeWeek() {
@@ -135,25 +145,45 @@ public class ScheduleEntryController extends Controller {
             return isByeWeek() || opponent() != null;
         }
 
-        private void initializeOpponentComboBox() {
-            opponentComboBox.setConverter(StringConverters.opponentFullName());
-            SearchableComboBox.builder(opponentComboBox, Opponent::streamAll).build();
-        }
-
-        private void initializeWeekTypeChoiceBox() {
-            weekTypeChoiceBox.setConverter(StringConverters.weekTypeName());
-            weekTypeChoiceBox.getItems().addAll(WeekType.values());
-            weekTypeChoiceBox.valueProperty().addListener(this::weekTypeChanged);
-            weekTypeChoiceBox.setValue(BYE);
-        }
-
-        private void weekTypeChanged(ObservableValue<? extends WeekType> observable, WeekType oldValue, WeekType value) {
-            if (value == BYE) {
-                opponentComboBox.getSelectionModel().clearSelection();
+        private void weekTypeChanged(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle value) {
+            RadioButton selected = (RadioButton) value;
+            StringConverter<WeekType> converter = StringConverters.weekTypeName();
+            weekType = converter.fromString(selected.getText());
+            weekType = switch (selected.getText()) {
+                case "Home" -> HOME;
+                case "Away" -> AWAY;
+                default -> BYE;
+            };
+            if (weekType == BYE) {
+                opponentComboBox.setValue(null);
                 opponentComboBox.setDisable(true);
                 return;
             }
             opponentComboBox.setDisable(false);
+        }
+
+        private boolean opponentIsNotSelectedSchool(Opponent opponent) {
+            return opponent != schoolBinding.get();
+        }
+
+        private Stream<Opponent> validOpponents() {
+            return Opponent.streamAll().filter(this::opponentIsNotSelectedSchool);
+        }
+
+        private void initializeOpponentComboBox() {
+            opponentComboBox.setConverter(StringConverters.opponentFullName());
+            SearchableComboBox.builder(opponentComboBox, this::validOpponents).build();
+        }
+
+        private void initializeWeekTypeToggleGroup() {
+            ObservableList<Toggle> toggles = weekTypeToggleGroup.getToggles();
+            RadioButton home = (RadioButton) toggles.getFirst();
+            RadioButton away = (RadioButton) toggles.get(1);
+            RadioButton bye = (RadioButton) toggles.getLast();
+            home.setText(HOME.displayName());
+            away.setText(AWAY.displayName());
+            bye.setText(BYE.displayName());
+            weekTypeToggleGroup.selectedToggleProperty().addListener(this::weekTypeChanged);
         }
     }
 }

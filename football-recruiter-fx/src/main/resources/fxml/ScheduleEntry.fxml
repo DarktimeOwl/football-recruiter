@@ -3,265 +3,355 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.darktimeowl.football_recruiter.fx.controllers.ScheduleEntryController">
-   <GridPane gridLinesVisible="true" layoutX="0.5" layoutY="0.5" AnchorPane.bottomAnchor="15.0"
-             AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.darktimeowl.football_recruiter.fx.controllers.ScheduleEntryController">
+   <GridPane alignment="CENTER" layoutX="0.5" layoutY="0.5" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
       <columnConstraints>
-         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
-         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
-         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
-         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0"/>
-         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
-         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
-         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
       </columnConstraints>
       <rowConstraints>
-         <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
-         <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
-         <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
-         <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
-         <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
-         <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
-         <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
-         <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
       </rowConstraints>
       <Label text="Week 1">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <ChoiceBox fx:id="weekTypeChoiceBox1" prefHeight="24.0" GridPane.columnIndex="1">
+      <VBox alignment="CENTER_LEFT" spacing="1.0" GridPane.columnIndex="1">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
-      </ChoiceBox>
-      <ComboBox fx:id="opponentComboBox1" editable="true" prefHeight="24.0" GridPane.columnIndex="2">
+         <RadioButton mnemonicParsing="false" text="Home">
+            <toggleGroup>
+               <ToggleGroup fx:id="weekTypeToggleGroup1" />
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton mnemonicParsing="false" text="Away" toggleGroup="$weekTypeToggleGroup1" />
+         <RadioButton mnemonicParsing="false" selected="true" text="BYE" toggleGroup="$weekTypeToggleGroup1" />
+      </VBox>
+      <ComboBox fx:id="opponentComboBox1" disable="true" editable="true" prefHeight="24.0" GridPane.columnIndex="2">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </ComboBox>
       <Label text="Week 2" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <ChoiceBox fx:id="weekTypeChoiceBox2" prefHeight="24.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <VBox alignment="CENTER_LEFT" spacing="1.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
-      </ChoiceBox>
-      <ComboBox fx:id="opponentComboBox2" editable="true" prefHeight="24.0" GridPane.columnIndex="2"
-                GridPane.rowIndex="1">
+         <RadioButton mnemonicParsing="false" text="Home">
+            <toggleGroup>
+               <ToggleGroup fx:id="weekTypeToggleGroup2" />
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton mnemonicParsing="false" text="Away" toggleGroup="$weekTypeToggleGroup2" />
+         <RadioButton mnemonicParsing="false" selected="true" text="BYE" toggleGroup="$weekTypeToggleGroup2" />
+      </VBox>
+      <ComboBox fx:id="opponentComboBox2" disable="true" editable="true" prefHeight="24.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </ComboBox>
       <Label text="Week 3" GridPane.rowIndex="2">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <ChoiceBox fx:id="weekTypeChoiceBox3" prefHeight="24.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <VBox alignment="CENTER_LEFT" spacing="1.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
-      </ChoiceBox>
-      <ComboBox fx:id="opponentComboBox3" editable="true" prefHeight="24.0" GridPane.columnIndex="2"
-                GridPane.rowIndex="2">
+         <RadioButton mnemonicParsing="false" text="Home">
+            <toggleGroup>
+               <ToggleGroup fx:id="weekTypeToggleGroup3" />
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton mnemonicParsing="false" text="Away" toggleGroup="$weekTypeToggleGroup3" />
+         <RadioButton mnemonicParsing="false" selected="true" text="BYE" toggleGroup="$weekTypeToggleGroup3" />
+      </VBox>
+      <ComboBox fx:id="opponentComboBox3" disable="true" editable="true" prefHeight="24.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </ComboBox>
       <Label text="Week 4" GridPane.rowIndex="3">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <ChoiceBox fx:id="weekTypeChoiceBox4" prefHeight="24.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <VBox alignment="CENTER_LEFT" spacing="1.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
-      </ChoiceBox>
-      <ComboBox fx:id="opponentComboBox4" editable="true" prefHeight="24.0" GridPane.columnIndex="2"
-                GridPane.rowIndex="3">
+         <RadioButton mnemonicParsing="false" text="Home">
+            <toggleGroup>
+               <ToggleGroup fx:id="weekTypeToggleGroup4" />
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton mnemonicParsing="false" text="Away" toggleGroup="$weekTypeToggleGroup4" />
+         <RadioButton mnemonicParsing="false" selected="true" text="BYE" toggleGroup="$weekTypeToggleGroup4" />
+      </VBox>
+      <ComboBox fx:id="opponentComboBox4" disable="true" editable="true" prefHeight="24.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </ComboBox>
       <Label text="Week 5" GridPane.rowIndex="4">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <ChoiceBox fx:id="weekTypeChoiceBox5" prefHeight="24.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <VBox alignment="CENTER_LEFT" spacing="1.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
-      </ChoiceBox>
-      <ComboBox fx:id="opponentComboBox5" editable="true" prefHeight="24.0" GridPane.columnIndex="2"
-                GridPane.rowIndex="4">
+         <RadioButton mnemonicParsing="false" text="Home">
+            <toggleGroup>
+               <ToggleGroup fx:id="weekTypeToggleGroup5" />
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton mnemonicParsing="false" text="Away" toggleGroup="$weekTypeToggleGroup5" />
+         <RadioButton mnemonicParsing="false" selected="true" text="BYE" toggleGroup="$weekTypeToggleGroup5" />
+      </VBox>
+      <ComboBox fx:id="opponentComboBox5" disable="true" editable="true" prefHeight="24.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </ComboBox>
       <Label text="Week 6" GridPane.rowIndex="5">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <ChoiceBox fx:id="weekTypeChoiceBox6" prefHeight="24.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+      <VBox alignment="CENTER_LEFT" spacing="1.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
-      </ChoiceBox>
-      <ComboBox fx:id="opponentComboBox6" editable="true" prefHeight="24.0" GridPane.columnIndex="2"
-                GridPane.rowIndex="5">
+         <RadioButton mnemonicParsing="false" text="Home">
+            <toggleGroup>
+               <ToggleGroup fx:id="weekTypeToggleGroup6" />
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton mnemonicParsing="false" text="Away" toggleGroup="$weekTypeToggleGroup6" />
+         <RadioButton mnemonicParsing="false" selected="true" text="BYE" toggleGroup="$weekTypeToggleGroup6" />
+      </VBox>
+      <ComboBox fx:id="opponentComboBox6" disable="true" editable="true" prefHeight="24.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </ComboBox>
       <Label text="Week 7" GridPane.rowIndex="6">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <ChoiceBox fx:id="weekTypeChoiceBox7" prefHeight="24.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+      <VBox alignment="CENTER_LEFT" spacing="1.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
-      </ChoiceBox>
-      <ComboBox fx:id="opponentComboBox7" editable="true" prefHeight="24.0" GridPane.columnIndex="2"
-                GridPane.rowIndex="6">
+         <RadioButton mnemonicParsing="false" text="Home">
+            <toggleGroup>
+               <ToggleGroup fx:id="weekTypeToggleGroup7" />
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton mnemonicParsing="false" text="Away" toggleGroup="$weekTypeToggleGroup7" />
+         <RadioButton mnemonicParsing="false" selected="true" text="BYE" toggleGroup="$weekTypeToggleGroup7" />
+      </VBox>
+      <ComboBox fx:id="opponentComboBox7" disable="true" editable="true" prefHeight="24.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </ComboBox>
       <Label text="Week 8" GridPane.rowIndex="7">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <ChoiceBox fx:id="weekTypeChoiceBox8" prefHeight="24.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+      <VBox alignment="CENTER_LEFT" spacing="1.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
-      </ChoiceBox>
-      <ComboBox fx:id="opponentComboBox8" editable="true" prefHeight="24.0" GridPane.columnIndex="2"
-                GridPane.rowIndex="7">
+         <RadioButton mnemonicParsing="false" text="Home">
+            <toggleGroup>
+               <ToggleGroup fx:id="weekTypeToggleGroup8" />
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton mnemonicParsing="false" text="Away" toggleGroup="$weekTypeToggleGroup8" />
+         <RadioButton mnemonicParsing="false" selected="true" text="BYE" toggleGroup="$weekTypeToggleGroup8" />
+      </VBox>
+      <ComboBox fx:id="opponentComboBox8" disable="true" editable="true" prefHeight="24.0" GridPane.columnIndex="2" GridPane.rowIndex="7">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </ComboBox>
       <Label text="Week 9" GridPane.columnIndex="4">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <ChoiceBox fx:id="weekTypeChoiceBox9" prefHeight="24.0" GridPane.columnIndex="5">
+      <VBox alignment="CENTER_LEFT" spacing="1.0" GridPane.columnIndex="5">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
-      </ChoiceBox>
-      <ComboBox fx:id="opponentComboBox9" editable="true" prefHeight="24.0" GridPane.columnIndex="6">
+         <RadioButton mnemonicParsing="false" text="Home">
+            <toggleGroup>
+               <ToggleGroup fx:id="weekTypeToggleGroup9" />
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton mnemonicParsing="false" text="Away" toggleGroup="$weekTypeToggleGroup9" />
+         <RadioButton mnemonicParsing="false" selected="true" text="BYE" toggleGroup="$weekTypeToggleGroup9" />
+      </VBox>
+      <ComboBox fx:id="opponentComboBox9" disable="true" editable="true" prefHeight="24.0" GridPane.columnIndex="6">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </ComboBox>
       <Label text="Week 10" GridPane.columnIndex="4" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <ChoiceBox fx:id="weekTypeChoiceBox10" prefHeight="24.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+      <VBox alignment="CENTER_LEFT" spacing="1.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
-      </ChoiceBox>
-      <ComboBox fx:id="opponentComboBox10" editable="true" prefHeight="24.0" GridPane.columnIndex="6"
-                GridPane.rowIndex="1">
+         <RadioButton mnemonicParsing="false" text="Home">
+            <toggleGroup>
+               <ToggleGroup fx:id="weekTypeToggleGroup10" />
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton mnemonicParsing="false" text="Away" toggleGroup="$weekTypeToggleGroup10" />
+         <RadioButton mnemonicParsing="false" selected="true" text="BYE" toggleGroup="$weekTypeToggleGroup10" />
+      </VBox>
+      <ComboBox fx:id="opponentComboBox10" disable="true" editable="true" prefHeight="24.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </ComboBox>
       <Label text="Week 11" GridPane.columnIndex="4" GridPane.rowIndex="2">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <ChoiceBox fx:id="weekTypeChoiceBox11" prefHeight="24.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+      <VBox alignment="CENTER_LEFT" spacing="1.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
-      </ChoiceBox>
-      <ComboBox fx:id="opponentComboBox11" editable="true" prefHeight="24.0" GridPane.columnIndex="6"
-                GridPane.rowIndex="2">
+         <RadioButton mnemonicParsing="false" text="Home">
+            <toggleGroup>
+               <ToggleGroup fx:id="weekTypeToggleGroup11" />
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton mnemonicParsing="false" text="Away" toggleGroup="$weekTypeToggleGroup11" />
+         <RadioButton mnemonicParsing="false" selected="true" text="BYE" toggleGroup="$weekTypeToggleGroup11" />
+      </VBox>
+      <ComboBox fx:id="opponentComboBox11" disable="true" editable="true" prefHeight="24.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </ComboBox>
       <Label text="Week 12" GridPane.columnIndex="4" GridPane.rowIndex="3">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <ChoiceBox fx:id="weekTypeChoiceBox12" prefHeight="24.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
+      <VBox alignment="CENTER_LEFT" spacing="1.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
-      </ChoiceBox>
-      <ComboBox fx:id="opponentComboBox12" editable="true" prefHeight="24.0" GridPane.columnIndex="6"
-                GridPane.rowIndex="3">
+         <RadioButton mnemonicParsing="false" text="Home">
+            <toggleGroup>
+               <ToggleGroup fx:id="weekTypeToggleGroup12" />
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton mnemonicParsing="false" text="Away" toggleGroup="$weekTypeToggleGroup12" />
+         <RadioButton mnemonicParsing="false" selected="true" text="BYE" toggleGroup="$weekTypeToggleGroup12" />
+      </VBox>
+      <ComboBox fx:id="opponentComboBox12" disable="true" editable="true" prefHeight="24.0" GridPane.columnIndex="6" GridPane.rowIndex="3">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </ComboBox>
       <Label text="Week 13" GridPane.columnIndex="4" GridPane.rowIndex="4">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <ChoiceBox fx:id="weekTypeChoiceBox13" prefHeight="24.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
+      <VBox alignment="CENTER_LEFT" spacing="1.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
-      </ChoiceBox>
-      <ComboBox fx:id="opponentComboBox13" editable="true" prefHeight="24.0" GridPane.columnIndex="6"
-                GridPane.rowIndex="4">
+         <RadioButton mnemonicParsing="false" text="Home">
+            <toggleGroup>
+               <ToggleGroup fx:id="weekTypeToggleGroup13" />
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton mnemonicParsing="false" text="Away" toggleGroup="$weekTypeToggleGroup13" />
+         <RadioButton mnemonicParsing="false" selected="true" text="BYE" toggleGroup="$weekTypeToggleGroup13" />
+      </VBox>
+      <ComboBox fx:id="opponentComboBox13" disable="true" editable="true" prefHeight="24.0" GridPane.columnIndex="6" GridPane.rowIndex="4">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </ComboBox>
       <Label text="Week 14" GridPane.columnIndex="4" GridPane.rowIndex="5">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <ChoiceBox fx:id="weekTypeChoiceBox14" prefHeight="24.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+      <VBox alignment="CENTER_LEFT" spacing="1.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
-      </ChoiceBox>
-      <ComboBox fx:id="opponentComboBox14" editable="true" prefHeight="24.0" GridPane.columnIndex="6"
-                GridPane.rowIndex="5">
+         <RadioButton mnemonicParsing="false" text="Home">
+            <toggleGroup>
+               <ToggleGroup fx:id="weekTypeToggleGroup14" />
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton mnemonicParsing="false" text="Away" toggleGroup="$weekTypeToggleGroup14" />
+         <RadioButton mnemonicParsing="false" selected="true" text="BYE" toggleGroup="$weekTypeToggleGroup14" />
+      </VBox>
+      <ComboBox fx:id="opponentComboBox14" disable="true" editable="true" prefHeight="24.0" GridPane.columnIndex="6" GridPane.rowIndex="5">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </ComboBox>
       <Label text="Week 15" GridPane.columnIndex="4" GridPane.rowIndex="6">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <ChoiceBox fx:id="weekTypeChoiceBox15" prefHeight="24.0" GridPane.columnIndex="5" GridPane.rowIndex="6">
+      <VBox alignment="CENTER_LEFT" spacing="1.0" GridPane.columnIndex="5" GridPane.rowIndex="6">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
-      </ChoiceBox>
-      <ComboBox fx:id="opponentComboBox15" editable="true" prefHeight="24.0" GridPane.columnIndex="6"
-                GridPane.rowIndex="6">
+         <RadioButton mnemonicParsing="false" text="Home">
+            <toggleGroup>
+               <ToggleGroup fx:id="weekTypeToggleGroup15" />
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton mnemonicParsing="false" text="Away" toggleGroup="$weekTypeToggleGroup15" />
+         <RadioButton mnemonicParsing="false" selected="true" text="BYE" toggleGroup="$weekTypeToggleGroup15" />
+      </VBox>
+      <ComboBox fx:id="opponentComboBox15" disable="true" editable="true" prefHeight="24.0" GridPane.columnIndex="6" GridPane.rowIndex="6">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </ComboBox>
    </GridPane>
