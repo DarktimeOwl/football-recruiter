@@ -9,15 +9,31 @@ import javafx.stage.Stage;
 public class FootballRecruiterFX extends Application {
     public static final String APPLICATION_NAME = "Football Recruiter";
 
-    private final ControllerFactory controllerFactory = new ControllerFactory();
+    private ControllerFactory controllerFactory;
+    private MainController controller;
+    private Stage primaryStage;
 
-    public void launchApplication() {
+    public FootballRecruiterFX launchApplication() {
         launch();
+        return this;
     }
 
     @Override
     public void start(Stage primaryStage) {
-        MainController controller = controllerFactory.makeMainController();
+        this.primaryStage = primaryStage;
+    }
+
+    public FootballRecruiterFX setControllerFactory(ControllerFactory controllerFactory) {
+        this.controllerFactory = controllerFactory;
+        this.controller = controllerFactory.makeMainController();
+        return this;
+    }
+
+    public ControllerFactory getControllerFactory() {
+        return controllerFactory;
+    }
+
+    public void show() {
         Scene scene = controller.getScene();
         primaryStage.setScene(scene);
         primaryStage.setTitle(APPLICATION_NAME);
