@@ -19,14 +19,15 @@ public class FootballRecruiterFX extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
-        this.primaryStage = primaryStage;
+    public void init() {
+        controllerFactory = new ControllerFactory();
+        controller = controllerFactory.makeMainController();
     }
 
-    public FootballRecruiterFX setControllerFactory(ControllerFactory controllerFactory) {
-        this.controllerFactory = controllerFactory;
-        this.controller = controllerFactory.makeMainController();
-        return this;
+    @Override
+    public void start(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+        show();
     }
 
     public ControllerFactory getControllerFactory() {
